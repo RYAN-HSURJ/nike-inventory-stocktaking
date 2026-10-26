@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#080808">
+<title>NIKE Inventory | Stocktaking App v4</title>
+<style>
+:root{color-scheme:dark;--orange:#ff5a0a;--bg:#080808;--panel:#1a1a1a;--border:#363636;--muted:#9c9c9c}
+*{box-sizing:border-box}html,body{margin:0;width:100%;overflow-x:hidden}body{background:var(--bg);color:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",Arial,sans-serif;font-size:14px}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}input,select{max-width:100%}.app{width:100%;max-width:430px;min-height:100vh;margin:auto;padding:18px 18px 118px;background:radial-gradient(ellipse at top right,#272727,transparent 43%),#080808}.brand{padding:14px 4px 18px}.swoosh{font-size:30px;font-weight:950;font-style:italic;letter-spacing:1.5px}.brand h1{margin:12px 0 0;font-size:35px;line-height:1;letter-spacing:-1px;font-weight:950}.subtitle{color:#aaa;font-size:11px;letter-spacing:2.2px;margin-top:10px}.section-title{font-size:15px;margin:22px 0 11px;font-weight:800}.panel{padding:16px;margin:12px 0;background:linear-gradient(130deg,#1c1c1c,#101010);border:1px solid var(--border);border-radius:16px;min-width:0}.primary{display:block;width:100%;padding:15px 12px;border:none;border-radius:26px;background:var(--orange);color:white;font-size:16px;font-weight:800}.control{min-height:42px;padding:10px 9px;background:#231710;border:1px solid var(--orange);border-radius:9px;color:#ff965d;font-weight:700;font-size:13px}.control.secondary{color:#ddd;background:#202020;border-color:#505050}.danger{border-color:#683535!important;color:#ff9c9c!important;background:#201414!important}.muted,.help{color:var(--muted);line-height:1.65;font-size:12px}.help{font-size:11px}.small{font-size:11px}.notice{color:#999;text-align:center;font-size:11px;line-height:1.6}.file-info{display:flex;align-items:center;gap:12px}.file-icon{display:grid;place-items:center;flex:0 0 45px;height:45px;background:#282828;border-radius:10px;font-size:25px}.file-name{font-weight:700;overflow-wrap:anywhere}.top-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.segments{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:12px 0}.segment{padding:11px 4px;border-radius:24px;background:#1d1d1d;color:#ccc;border:1px solid #3a3a3a;font-size:13px}.segment.active{background:var(--orange);border-color:var(--orange);color:white;font-weight:800}.filter-label{display:block;margin:12px 0 6px;font-size:12px;color:#ddd}.filter-input{width:100%;min-width:0;padding:12px 10px;border:1px solid #4a4a4a;border-radius:8px;color:#fff;background:#101010}.filters-two,.actions-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.actions-two{margin-top:12px}.actions-two .control{width:100%}.check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:10px 0}.check-grid label{display:flex;align-items:center;gap:7px;color:#ddd;font-size:12px;overflow-wrap:anywhere}.check-grid input{width:18px;height:18px;accent-color:var(--orange);flex-shrink:0}.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:12px}.summary-tile{padding:11px 5px;text-align:center;background:#151515;border:1px solid #3a3a3a;border-radius:10px}.summary-tile .value{font-weight:800;font-size:19px;overflow-wrap:anywhere;margin-top:5px}.summary-tile .key{font-size:11px;color:#aaa}.summary-total{padding:12px 9px;border-top:1px solid #444;margin-top:12px;font-size:15px;font-weight:800}.summary-total strong{color:#ff853c}.divider{border:0;border-top:1px solid #383838;margin:15px 0}.sku-row{display:flex;gap:12px;align-items:flex-start;padding:13px 3px;border-bottom:1px solid #353535;cursor:pointer}.sku-row input[type=checkbox]{width:21px;height:21px;margin-top:2px;flex:0 0 21px;accent-color:var(--orange)}.sku-info{min-width:0;flex:1;overflow-wrap:anywhere}.sku-title{font-weight:800;font-size:15px}.sku-desc{font-size:12px;color:#aaa;margin-top:6px;line-height:1.5}.sku-detail{font-size:11px;color:#aaa;line-height:1.6;margin-top:5px;overflow-wrap:anywhere}.stock-amount{font-size:12px;color:#ff8547;margin-top:8px}.selected-summary{padding:15px 0 2px;border-top:1px solid #454545;font-size:13px;font-weight:700}.selected-summary p{margin:12px 0}.hidden{display:none!important}.workspace-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.workspace-top h2{margin:0 0 7px}.workspace-top button{flex:0 0 80px}.scan-panel{padding:14px;margin-top:16px;border:1px solid #66402d;border-radius:12px;background:#1b120d}.scan-row{display:flex;gap:8px;margin-top:9px}.scan-row input{width:100%;min-width:0;flex:1;border:1px solid #555;border-radius:8px;background:#090909;color:white;padding:12px}.scan-row button{flex-shrink:0;padding:8px 10px;border:none;border-radius:8px;background:var(--orange);color:#fff;font-weight:700;font-size:12px}.feedback{color:#aaa;font-size:12px;line-height:1.6;margin-top:9px;overflow-wrap:anywhere}.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}.stat-card{border:1px solid #393939;border-radius:10px;padding:12px 3px;text-align:center;background:#141414}.stat-card .value{font-size:19px;font-weight:850;margin-top:5px}.stat-card .key{color:#aaa;font-size:11px}.count-card{padding:14px 0;border-bottom:1px solid #414141}.count-card.active{border:2px solid var(--orange);box-shadow:0 0 0 1px #ff5a0a55,inset 0 0 18px #ff5a0a12;border-radius:12px;padding:12px;margin:8px -5px;background:#26170f}.active-caption{color:#ff914d;font-size:11px;font-weight:900;margin:0 0 8px}.count-head{display:flex;justify-content:space-between;align-items:flex-start;gap:9px}.remove{padding:8px 9px;border:1px solid #784040;border-radius:8px;background:#251515;color:#ff9a9a;flex-shrink:0;font-size:12px}.count-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:15px 0}.count-field{min-width:0}.count-field label{display:block;margin-bottom:6px;color:#aaa;font-size:11px}.count-field input{display:block;width:100%;min-width:0;padding:10px 7px;border:1px solid #444;border-radius:8px;color:#eee;background:#252525;font-size:14px}.size-line{display:grid;grid-template-columns:minmax(0,1fr) 66px 66px;gap:8px;align-items:center;padding:10px 0;border-top:1px solid #373737}.size-line input{width:100%;min-width:0;padding:10px 4px;border:1px solid #444;border-radius:8px;background:#050505;color:white;font-size:15px}.size-line input[readonly]{background:#252525}.status-pill{display:inline-block;padding:5px 10px;border-radius:20px;background:#303030;color:#ddd;font-size:11px;margin-top:9px}.status-pill.short{background:#3f1b1b;color:#ff8b8b}.status-pill.good{background:#173924;color:#9bffbd}.status-pill.over{background:#46280d;color:#ffbc7a}.empty{font-size:12px;color:#aaa;padding:15px 2px;line-height:1.6}.camera-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.96);padding:17px}.camera-box{background:#191919;border:1px solid #4b4b4b;border-radius:16px;padding:15px;width:100%;max-width:430px}.camera-box video{display:block;width:100%;max-height:50vh;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:#000;margin:12px 0}.camera-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:10px}.camera-actions button{font-size:11px;padding:9px 4px}.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:30;padding:10px 0 calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#090909;border-top:1px solid #333}.nav-item{padding:5px 0;border:0;background:transparent;color:#888;font-size:11px}.nav-item span{display:block;font-size:23px;margin-bottom:6px}.nav-item.active{color:var(--orange)}.title-inline{display:flex;justify-content:space-between;align-items:center;gap:8px}.chip{font-size:11px;border:1px solid #5a5a5a;padding:4px 6px;border-radius:20px;color:#ccc}.bottom-space{margin-bottom:18px}#csvFile{display:none}@media(max-width:355px){.app{padding-left:12px;padding-right:12px}.count-card.active{margin-left:-4px;margin-right:-4px}.size-line{grid-template-columns:minmax(0,1fr) 60px 60px}}
+
+/* V4: 直式／橫式條碼連續盤點 */
+.camera-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.camera-counter{white-space:nowrap;font-size:11px;color:#ff9b63;background:#302016;border:1px solid #70412c;border-radius:25px;padding:5px 9px}
+.camera-counter b{font-size:16px}
+.camera-video-wrap{position:relative;margin:12px 0;background:#000;border-radius:11px;overflow:hidden}
+.camera-video-wrap video{display:block;width:100%;max-height:49vh;aspect-ratio:4/3;object-fit:cover;margin:0}
+.camera-guide{position:absolute;inset:12%;pointer-events:none;border:1px dashed rgba(255,255,255,.4);border-radius:8px}
+.camera-guide .guide-horizontal{position:absolute;left:7%;right:7%;top:50%;border-top:2px solid rgba(255,90,10,.65)}
+.camera-guide .guide-vertical{position:absolute;top:8%;bottom:8%;left:50%;border-left:2px dashed rgba(255,90,10,.60)}
+.camera-last{background:#111;border:1px solid #454545;border-radius:9px;padding:9px 10px;font-size:12px;line-height:1.5;color:#ccc;min-height:38px}
+.camera-last.ok{color:#a1ffba;border-color:#327548;background:#102419}
+.camera-beep-test{width:100%;margin-top:9px}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="brand" id="top"><div class="swoosh">NIKE</div><h1>NIKE<br>INVENTORY</h1><div class="subtitle">STOCKTAKING APP · CONTINUOUS SCAN V4</div></header>
+<button type="button" id="importButton" class="primary">＋　匯入庫存 CSV</button><input id="csvFile" type="file" accept=".csv,text/csv,text/plain"><p class="notice">庫存資料與盤點條碼均以匯入的 CSV 為準</p>
+<section class="panel" id="filePanel"><h2 class="section-title" style="margin-top:0">目前庫存檔</h2><div class="file-info"><div class="file-icon">▤</div><div><div id="fileName" class="file-name">尚未匯入庫存</div><div id="fileInfo" class="muted">請先選擇 CSV 檔案</div></div></div><div id="csvSummary" class="hidden" aria-live="polite"><hr class="divider"><h3 style="margin:0;font-size:14px">CSV 讀取結果（依 STOCK_ON_HAND 加總）</h3><div class="summary-grid"><div class="summary-tile"><div class="key">FW 庫存總數</div><div id="sumFW" class="value">0</div></div><div class="summary-tile"><div class="key">APP 庫存總數</div><div id="sumAPP" class="value">0</div></div><div class="summary-tile"><div class="key">EQ 庫存總數</div><div id="sumEQ" class="value">0</div></div></div><div class="summary-total">3 個 BU 庫存總計：<strong id="sumAll">0</strong> 件</div><div id="otherBUWarning" class="help hidden"></div><div id="csvMeta" class="muted"></div></div></section>
+<p class="notice" id="status" role="status">請先匯入庫存檔</p>
+<section id="skuSection" class="panel hidden">
+<h2 class="section-title" style="margin-top:0">快速篩選</h2><div id="quickFilters" class="segments"><button class="segment active" type="button" data-bu="ALL">全部</button><button class="segment" type="button" data-bu="APP">APP</button><button class="segment" type="button" data-bu="FW">FW</button><button class="segment" type="button" data-bu="EQ">EQ</button></div>
+<label class="filter-label">Sub Dept 篩選（可複選）</label><button class="control secondary" type="button" id="deptToggle" style="width:100%;text-align:left">全部 Sub Dept ▾</button><div id="deptOptions" class="check-grid hidden"></div>
+<label class="filter-label" for="skuSearch">搜尋 SKU／商品名稱</label><input type="search" id="skuSearch" class="filter-input" placeholder="例如 DV0761-480">
+<label class="filter-label" for="skuSort">系統庫存數量排序</label><select class="filter-input" id="skuSort"><option value="default">預設順序</option><option value="desc">庫存多 → 少</option><option value="asc">庫存少 → 多</option></select>
+<label class="filter-label" for="exactStock">指定庫存總數（例如 2）</label><input type="number" id="exactStock" min="0" step="1" class="filter-input" placeholder="空白＝不限制">
+<div class="filters-two"><div><label class="filter-label" for="minStock">最小庫存數量</label><input type="number" id="minStock" min="0" step="1" class="filter-input" placeholder="例如 0"></div><div><label class="filter-label" for="maxStock">最大庫存數量</label><input type="number" id="maxStock" min="0" step="1" class="filter-input" placeholder="例如 20"></div></div>
+<div class="actions-two"><button class="control" type="button" id="applyQty">套用數量條件</button><button class="control secondary" type="button" id="clearQty">清除數量條件</button></div><p class="help">指定數量與最大／最小數量擇一使用；篩選條件變更會清除尚未加入清單的勾選，不會刪除已盤點資料。</p>
+<div class="actions-two"><button class="control" type="button" id="selectAll">全選目前符合的 SKU</button><button class="control secondary" type="button" id="clearSelection">取消全選</button></div>
+<button class="primary" type="button" id="addSelected" style="margin-top:12px">＋　將勾選 SKU 加入盤點清單（0）</button>
+<div class="title-inline"><h3 class="section-title">SKU 庫存彙總</h3><span id="filterTag" class="chip">全部</span></div><div id="skuList"></div><div class="selected-summary"><p id="matchedCount">符合條件的 SKU：0 款</p><p id="selectedCount">已勾選 SKU：0 款</p><p id="existingCount">已加入盤點清單：0 款</p></div>
+</section>
+<section id="workspace" class="panel hidden"><div class="workspace-top"><div><h2>盤點工作區</h2><div class="muted">只盤點清單中的 SKU；每成功掃描一次，對應尺寸實盤數量 +1</div></div><button class="control secondary danger" type="button" id="clearWorkspace">清空清單</button></div>
+<button class="control" id="exportReport" type="button" style="width:100%;margin-top:13px">匯出盤點差異 CSV 報表</button><p class="help">盤點數據會儲存在本瀏覽器；請定期匯出備份。</p>
+<div class="scan-panel"><strong>掃描 Item Number</strong><p class="help">實盤數量由 0 開始，每辨識一次條碼 +1（與 CSV 庫存數量分開計算）。支援 CSV 條碼前方多兩碼 00 的差異。</p><div class="scan-row"><input id="barcodeInput" type="text" autocomplete="off" autocapitalize="off" inputmode="numeric" placeholder="Item Number"><button id="cameraButton" type="button">📷 相機</button><button id="scanButton" type="button">確認</button></div><div id="scanFeedback" class="feedback" aria-live="polite">請先將商品加入盤點清單。</div>
+<hr class="divider"><strong>手動調整（相機無法辨識時）</strong><label class="filter-label" for="manualSku">SKU 型號</label><input id="manualSku" class="filter-input" placeholder="例如 DV0761-480"><label class="filter-label" for="manualSize">尺寸</label><input id="manualSize" class="filter-input" placeholder="例如 ONE SIZ、M、42"><label class="filter-label" for="manualQty">調整數量</label><input id="manualQty" type="number" inputmode="numeric" min="1" step="1" value="1" class="filter-input"><div class="actions-two"><button class="control" id="manualPlus" type="button">＋ 增加庫存</button><button class="control secondary" id="manualMinus" type="button">－ 減少庫存</button></div><div id="manualFeedback" class="feedback">尚未進行手動調整。</div></div>
+<div class="stats-grid"><div class="stat-card"><div class="key">盤點 SKU</div><div id="workSkuTotal" class="value">0</div></div><div class="stat-card"><div class="key">已輸入實盤</div><div id="workCountedTotal" class="value">0</div></div><div class="stat-card"><div class="key">有差異 SKU</div><div id="workVarianceTotal" class="value">0</div></div></div>
+<label class="filter-label" for="workspaceSort">已選盤點型號排序</label><select id="workspaceSort" class="filter-input"><option value="default">預設順序（最新掃描置頂）</option><option value="asc">型號 A → Z（掃描仍優先）</option><option value="desc">型號 Z → A（掃描仍優先）</option></select><div id="workspaceList"></div><p class="help">差異 = 實盤數量 − 系統庫存。只有所有尺寸都輸入後，才會判定 SKU 最終差異。</p>
+</section>
+<section id="results" class="panel hidden"><h2 class="section-title" style="margin-top:0">盤點結果</h2><div id="resultSummary" class="muted"></div><div id="resultList"></div><button id="exportResult" type="button" class="primary" style="margin-top:14px">匯出差異報表 CSV</button></section>
+</main>
+<div id="cameraModal" class="camera-modal hidden" role="dialog" aria-modal="true" aria-label="相機掃描"><div class="camera-box"><div class="camera-heading"><strong>連續掃描 Item Number</strong><span class="camera-counter">本次掃描 <b id="cameraCounter">0</b> 件</span></div>
+<p class="help">支援橫式、直式條碼自動旋轉辨識。每成功掃描一件，會響一聲「嗶」，最快約 0.5 秒可掃下一件。相同條碼請先移出鏡頭再對準下一雙鞋，避免重複計數。</p>
+<div class="camera-video-wrap"><video id="cameraVideo" playsinline webkit-playsinline muted autoplay></video><div class="camera-guide" aria-hidden="true"><span class="guide-horizontal"></span><span class="guide-vertical"></span></div></div>
+<div id="cameraLastScan" class="camera-last" aria-live="polite">等待辨識第一件商品…</div>
+<div id="cameraStatus" class="feedback" aria-live="polite">正在準備相機…</div>
+<div class="camera-actions"><button class="control secondary" id="cameraClose" type="button">關閉</button><button class="control" id="torchButton" type="button" disabled>手電筒</button><button class="control secondary" id="cameraRetry" type="button">重新啟動</button></div>
+<button class="control secondary camera-beep-test" id="testBeep" type="button">🔊 測試提示音</button></div></div>
+<nav class="bottom-nav"><button type="button" class="nav-item active" data-nav="home"><span>⌂</span>首頁</button><button type="button" class="nav-item" data-nav="count"><span>▧</span>盤點</button><button type="button" class="nav-item" data-nav="result"><span>▤</span>結果</button><button type="button" class="nav-item" data-nav="settings"><span>⚙</span>設定</button></nav>
+<script src="https://cdn.jsdelivr.net/npm/@zxing/browser@0.1.5/umd/zxing-browser.min.js" defer></script>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const stocktakingItems=new Map(); // 只儲存真正已加入盤點的 SKU
+let inv=null,skuData=[],activeScanSku='',selection=new Set(),visibleSku=[],activeBU='ALL',selectedDepts=new Set();
+let qtyFilter={exact:null,min:null,max:null};
+const SAVE_KEY='nike_inventory_stocktaking_fixed_v4';let loadedSig='';
+const asNum=n=>{const value=Number(String(n??'').replaceAll(',','').trim());return Number.isFinite(value)?value:0};
+const fmt=n=>Number(n||0).toLocaleString('zh-TW',{maximumFractionDigits:3});
+const norm=s=>String(s??'').trim().toUpperCase();
+function setStatus(msg){$('status').textContent=msg}
+function feedback(id,message,good=true){const el=$(id);el.textContent=message;el.style.color=good?'#7ce6a0':'#ff8b8b'}
+function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({items:[...stocktakingItems.entries()],fileSig:loadedSig,savedAt:new Date().toISOString()}))}catch(e){console.warn('無法保存資料：',e);setStatus('此瀏覽器無法自動保存，請先匯出盤點報表。')}}
+function restore(){try{const old=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(!old)return;loadedSig=old.fileSig||'';if(Array.isArray(old.items)){for(const [sku,x] of old.items){if(sku&&x&&Array.isArray(x.sizeItems))stocktakingItems.set(sku,x)}}if(stocktakingItems.size){renderWorkspace();setStatus('已恢復上次盤點清單 '+stocktakingItems.size+' 款。請重新匯入當次 CSV 再繼續掃描。')}}catch(e){console.warn(e)}}
+function parseCSV(text){const rows=[];let row=[],cell='',quote=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quote&&text[i+1]==='"'){cell+='"';i++}else quote=!quote}else if(c===','&&!quote){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quote){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>String(x).trim()))rows.push(row);row=[];cell=''}else cell+=c}row.push(cell);if(row.some(x=>String(x).trim()))rows.push(row);return rows}
+function col(headers,candidates){const key=s=>String(s||'').replace(/[\s_-]/g,'').toLowerCase();const hs=headers.map(key);for(const c of candidates){const idx=hs.indexOf(key(c));if(idx>=0)return idx}return -1}
+function normalizeBU(v){const s=norm(v);if(s==='APP'||s.includes('APPAREL'))return'APP';if(s==='FW'||s.includes('FOOTWEAR'))return'FW';if(s==='EQ'||s.includes('EQUIPMENT'))return'EQ';return s||'OTHER'}
+function cleanCode(code){return String(code||'').trim().replace(/\s/g,'').replace(/^0+(?=\d)/,'')}
+function decodeBuffer(bytes){try{return new TextDecoder('utf-8',{fatal:true}).decode(bytes)}catch(_){return new TextDecoder('big5').decode(bytes)}}
+function skuGroup(record){const h=record.headers,rows=record.rows;
+const ix={style:col(h,['style_code']),color:col(h,['color_code']),stock:col(h,['STOCK_ON_HAND']),bu:col(h,['division_name','division_name_1']),dept:col(h,['sub_dept_name','sub_dept_name_5']),desc:col(h,['item_desc','product_description','description']),barcode:col(h,['item_no','item number','barcode']),size:col(h,['size_name','size'])};
+const missing=['style','color','stock'].filter(k=>ix[k]<0);if(missing.length)throw Error('CSV 缺少欄位：'+missing.map(k=>({style:'style_code',color:'color_code',stock:'STOCK_ON_HAND'}[k])).join('、'));
+const grouped=new Map(),buTotal={FW:0,APP:0,EQ:0},otherBU=new Map();let validRows=0;
+rows.forEach((row,i)=>{const style=String(row[ix.style]??'').trim(),color=String(row[ix.color]??'').trim();if(!style||!color)return;const sku=style+'-'+color,stock=asNum(row[ix.stock]),bu=ix.bu<0?'OTHER':normalizeBU(row[ix.bu]),dept=ix.dept<0?'':String(row[ix.dept]||'').trim(),desc=ix.desc<0?'':String(row[ix.desc]||'').trim(),itemNo=ix.barcode<0?'':String(row[ix.barcode]||'').trim(),size=ix.size<0?'未提供尺寸':String(row[ix.size]||'').trim()||'未提供尺寸';validRows++;if(bu in buTotal)buTotal[bu]+=stock;else otherBU.set(bu,(otherBU.get(bu)||0)+stock);
+if(!grouped.has(sku))grouped.set(sku,{sku,style,color,division:bu,dept,description:desc,stock:0,sizes:0,sizeItems:[]});const x=grouped.get(sku);x.stock+=stock;const same=x.sizeItems.find(z=>z.itemNo===itemNo&&z.size===size);if(same)same.stock+=stock;else x.sizeItems.push({itemNo,size,stock,actual:'',counted:false,rowIndex:i});x.sizes=x.sizeItems.length;if(!x.description)x.description=desc;if(!x.dept)x.dept=dept;if(x.division==='OTHER'&&bu!=='OTHER')x.division=bu});
+return{skus:[...grouped.values()],buTotal,otherBU,validRows,hasBarcode:ix.barcode>=0}}
+function fingerprint(file,rows){return [file.name,file.size,rows.length].join('|')}
+function mergeWithCsv(){if(!stocktakingItems.size)return;const lookup=new Map(skuData.map(x=>[x.sku,x]));for(const [sku,old] of stocktakingItems){const cur=lookup.get(sku);if(!cur){stocktakingItems.delete(sku);continue}const existing=new Map();for(const item of old.sizeItems||[]){const k=cleanCode(item.itemNo)+'|'+norm(item.size);if(!existing.has(k))existing.set(k,item)}const fresh=cur.sizeItems.map(z=>{const prev=existing.get(cleanCode(z.itemNo)+'|'+norm(z.size));return{...z,actual:prev?prev.actual:'',counted:!!prev?.counted}});stocktakingItems.set(sku,{...cur,sizeItems:fresh})}}
+function renderTotals(group,file){const {buTotal,otherBU}=group;for(const bu of ['FW','APP','EQ'])$('sum'+bu).textContent=fmt(buTotal[bu]);$('sumAll').textContent=fmt(buTotal.FW+buTotal.APP+buTotal.EQ);const note=$('otherBUWarning');if(otherBU.size){note.classList.remove('hidden');note.textContent='提醒：CSV 另含未歸類至 FW／APP／EQ 的庫存：'+[...otherBU.entries()].map(([k,v])=>k+' '+fmt(v)).join('、')+' 件（未列入三類合計）'}else note.classList.add('hidden');$('csvMeta').textContent='CSV 商品資料 '+fmt(group.validRows)+' 筆｜合併後 SKU '+fmt(group.skus.length)+' 款';$('fileName').textContent=file.name;$('fileInfo').textContent='檔案大小 '+(file.size/1024).toFixed(1)+' KB｜已讀取成功';$('csvSummary').classList.remove('hidden')}
+async function importCSV(file){if(!file)return;setStatus('正在讀取 CSV…');try{const txt=decodeBuffer(new Uint8Array(await file.arrayBuffer())).replace(/^\uFEFF/,'');const rows=parseCSV(txt);if(rows.length<2)throw Error('檔案內沒有商品資料');const tmp={headers:rows[0].map(x=>x.trim()),rows:rows.slice(1)},group=skuGroup(tmp),nextSig=fingerprint(file,rows);if(stocktakingItems.size&&loadedSig&&loadedSig!==nextSig){const ok=confirm('偵測到與上次不同的 CSV 庫存檔。繼續匯入會以新檔資料更新盤點清單，並移除新檔找不到的 SKU。建議先匯出報表備份。是否繼續？');if(!ok){setStatus('已取消更換 CSV');return}}inv=tmp;skuData=group.skus;loadedSig=nextSig;selection.clear();activeBU='ALL';selectedDepts.clear();qtyFilter={exact:null,min:null,max:null};$('exactStock').value=$('minStock').value=$('maxStock').value=$('skuSearch').value='';$('skuSort').value='default';document.querySelectorAll('[data-bu]').forEach(b=>b.classList.toggle('active',b.dataset.bu==='ALL'));mergeWithCsv();renderTotals(group,file);buildDepts();renderFilters();renderWorkspace();save();setStatus('已匯入 CSV：'+fmt(group.validRows)+' 筆，'+fmt(skuData.length)+' 款 SKU。');$('skuSection').classList.remove('hidden')}catch(err){console.error(err);setStatus('CSV 讀取失敗：'+(err.message||String(err)));alert('CSV 讀取失敗：'+(err.message||String(err)))}}
+function buildDepts(){const node=$('deptOptions');node.replaceChildren();const list=[...new Set(skuData.filter(x=>activeBU==='ALL'||x.division===activeBU).map(x=>x.dept).filter(Boolean))].sort();for(const name of list){const lab=document.createElement('label'),cb=document.createElement('input');cb.type='checkbox';cb.checked=selectedDepts.has(name);cb.onchange=()=>{if(cb.checked)selectedDepts.add(name);else selectedDepts.delete(name);resetSelection();renderFilters()};lab.append(cb,document.createTextNode(name));node.append(lab)}$('deptToggle').textContent=selectedDepts.size?'已選 '+selectedDepts.size+' 個 Sub Dept ▾':'全部 Sub Dept ▾'}
+function resetSelection(){selection.clear()}
+function filteredData(){const query=norm($('skuSearch').value),{exact,min,max}=qtyFilter;const arr=skuData.filter(x=>(activeBU==='ALL'||x.division===activeBU)&&(selectedDepts.size===0||selectedDepts.has(x.dept))&&(exact===null?(min===null||x.stock>=min)&&(max===null||x.stock<=max):x.stock===exact)&&(!query||norm(x.sku).includes(query)||norm(x.description).includes(query)));const mode=$('skuSort').value;if(mode==='desc')arr.sort((a,b)=>b.stock-a.stock||a.sku.localeCompare(b.sku));else if(mode==='asc')arr.sort((a,b)=>a.stock-b.stock||a.sku.localeCompare(b.sku));return arr}
+function renderFilters(){if(!inv)return;visibleSku=filteredData();const visibleKeys=new Set(visibleSku.map(x=>x.sku));for(const key of selection){if(!visibleKeys.has(key))selection.delete(key)}$('matchedCount').textContent='符合條件的 SKU：'+fmt(visibleSku.length)+' 款';$('selectedCount').textContent='已勾選 SKU：'+fmt(selection.size)+' 款';$('existingCount').textContent='已加入盤點清單：'+fmt(stocktakingItems.size)+' 款';$('addSelected').textContent='＋　將勾選 SKU 加入盤點清單（'+fmt(selection.size)+'）';$('filterTag').textContent=activeBU==='ALL'?'全部 BU':activeBU;$('selectAll').textContent='全選目前符合的 SKU（'+fmt(visibleSku.length)+'）';const box=$('skuList');box.replaceChildren();if(!visibleSku.length){box.innerHTML='<div class="empty">沒有符合目前篩選條件的 SKU。</div>';return}const fragment=document.createDocumentFragment();for(const item of visibleSku){const row=document.createElement('label');row.className='sku-row';const cb=document.createElement('input');cb.type='checkbox';cb.className='sku-checkbox';cb.checked=selection.has(item.sku);cb.dataset.sku=item.sku;cb.onchange=()=>{if(cb.checked)selection.add(item.sku);else selection.delete(item.sku);$('selectedCount').textContent='已勾選 SKU：'+fmt(selection.size)+' 款';$('addSelected').textContent='＋　將勾選 SKU 加入盤點清單（'+fmt(selection.size)+'）'};const info=document.createElement('div');info.className='sku-info';const title=document.createElement('div');title.className='sku-title';title.textContent=item.sku;const nos=document.createElement('div');nos.className='sku-detail';nos.textContent='Item Number：'+([...new Set(item.sizeItems.map(z=>z.itemNo).filter(Boolean))].join('、')||'CSV 未提供');const desc=document.createElement('div');desc.className='sku-desc';desc.textContent=item.description||'無商品說明';const dept=document.createElement('div');dept.className='sku-detail';dept.textContent=item.division+' | '+(item.dept||'未分類 Sub Dept');const stock=document.createElement('div');stock.className='stock-amount';stock.textContent='系統庫存總數：'+fmt(item.stock)+' | 尺寸資料筆數：'+item.sizes;info.append(title,nos,desc,dept,stock);row.append(cb,info);fragment.append(row)}box.append(fragment)}
+function addSelected(){if(!selection.size){alert('請先勾選至少一款符合條件的 SKU。');return}const visibleMap=new Map(visibleSku.map(x=>[x.sku,x]));let added=0,existing=0;for(const sku of selection){const x=visibleMap.get(sku);if(!x)continue;if(stocktakingItems.has(sku)){existing++;continue}stocktakingItems.set(sku,{...x,sizeItems:x.sizeItems.map(z=>({...z})),actual:'',counted:false});added++}resetSelection();renderFilters();renderWorkspace();save();setStatus('本次新增 '+added+' 款 SKU'+(existing?'；已有 '+existing+' 款在盤點清單中（未重複加入）':'')+'。盤點清單目前 '+stocktakingItems.size+' 款。');$('workspace').scrollIntoView({behavior:'smooth',block:'start'})}
+function countState(x){const a=x.sizeItems||[],done=a.filter(z=>z.counted&&z.actual!=='');const actual=done.reduce((s,z)=>s+Number(z.actual),0),complete=a.length>0&&done.length===a.length,variance=complete?actual-Number(x.stock):null;return{actual,complete,variance,done:done.length,total:a.length,status:!done.length?'尚未盤點':!complete?'尺寸盤點中 '+done.length+'/'+a.length:variance===0?'數量一致':variance<0?'短少':'多出',cls:variance===null?'':variance===0?'good':variance<0?'short':'over'}}
+function renderStats(){const values=[...stocktakingItems.values()],counted=values.filter(x=>countState(x).done>0),diff=values.filter(x=>{const st=countState(x);return st.complete&&st.variance!==0});$('workSkuTotal').textContent=fmt(values.length);$('workCountedTotal').textContent=fmt(counted.length);$('workVarianceTotal').textContent=fmt(diff.length);$('existingCount').textContent='已加入盤點清單：'+fmt(values.length)+' 款';return{counted:counted.length,diff:diff.length}}
+function renderWorkspace(){const section=$('workspace');section.classList.remove('hidden');const list=$('workspaceList');list.replaceChildren();renderStats();let items=[...stocktakingItems.values()];const sort=$('workspaceSort').value;if(sort==='asc')items.sort((a,b)=>a.sku.localeCompare(b.sku,undefined,{numeric:true}));if(sort==='desc')items.sort((a,b)=>b.sku.localeCompare(a.sku,undefined,{numeric:true}));if(activeScanSku)items.sort((a,b)=>Number(b.sku===activeScanSku)-Number(a.sku===activeScanSku));if(!items.length){list.innerHTML='<div class="empty">盤點清單目前是空的。請先在上方勾選 SKU 並加入清單。</div>';renderResults();save();return}
+const frag=document.createDocumentFragment();for(const x of items){const card=document.createElement('div');card.className='count-card'+(activeScanSku===x.sku?' active':'');card.dataset.sku=x.sku;if(activeScanSku===x.sku){const cap=document.createElement('div');cap.className='active-caption';cap.textContent='● 正在盤點的 SKU';card.append(cap)}const top=document.createElement('div');top.className='count-head';const info=document.createElement('div');info.className='sku-info';const title=document.createElement('div');title.className='sku-title';title.textContent=x.sku;const desc=document.createElement('div');desc.className='sku-desc';desc.textContent=x.description||'無商品說明';const sub=document.createElement('div');sub.className='sku-detail';sub.textContent=x.division+' | '+(x.dept||'未分類')+' | 尺寸資料筆數：'+x.sizeItems.length;info.append(title,desc,sub);const remove=document.createElement('button');remove.type='button';remove.className='remove';remove.textContent='移除';remove.onclick=()=>{if(!confirm('確定移除 '+x.sku+' 的盤點資料？'))return;stocktakingItems.delete(x.sku);if(activeScanSku===x.sku)activeScanSku='';renderWorkspace();renderFilters()};top.append(info,remove);card.append(top);
+const sumFields=document.createElement('div');sumFields.className='count-fields';const fields=[];for(const field of ['系統庫存','實盤合計','差異']){const div=document.createElement('div');div.className='count-field';const label=document.createElement('label');label.textContent=field;const input=document.createElement('input');input.readOnly=true;input.setAttribute('aria-label',x.sku+' '+field);div.append(label,input);sumFields.append(div);fields.push(input)}card.append(sumFields);
+const head=document.createElement('div');head.className='sku-detail';head.textContent='尺寸明細（左：尺寸及條碼，中：系統庫存，右：實盤數量）';card.append(head);for(const z of x.sizeItems){const line=document.createElement('div');line.className='size-line';const label=document.createElement('div');label.className='sku-detail';label.textContent='尺寸：'+z.size;const l1=document.createElement('div');l1.textContent='SKU：'+x.sku;const l2=document.createElement('div');l2.textContent='Item Number：'+(z.itemNo||'未提供');label.append(l1,l2);const sys=document.createElement('input');sys.type='number';sys.readOnly=true;sys.value=z.stock;const count=document.createElement('input');count.type='number';count.min='0';count.step='1';count.inputMode='numeric';count.value=z.actual;count.placeholder='實盤';count.setAttribute('aria-label',x.sku+' '+z.size+' 實盤數量');count.oninput=()=>{if(count.value.trim()===''){z.actual='';z.counted=false}else{const val=Number(count.value);if(!Number.isInteger(val)||val<0){count.setCustomValidity('請輸入 0 或正整數');return}count.setCustomValidity('');z.actual=val;z.counted=true}refresh();renderStats();renderResults();save()};line.append(label,sys,count);card.append(line)}const pill=document.createElement('span');pill.className='status-pill';card.append(pill);function refresh(){const st=countState(x);fields[0].value=x.stock;fields[1].value=st.done?st.actual:'';fields[2].value=st.variance===null?'—':(st.variance>0?'+':'')+st.variance;fields[2].style.color=st.variance<0?'#ff6666':'#eee';pill.textContent=st.status;pill.className='status-pill '+st.cls}refresh();frag.append(card)}list.append(frag);renderResults();save()}
+function renderResults(){const box=$('results'),list=$('resultList');box.classList.remove('hidden');list.replaceChildren();const arr=[...stocktakingItems.values()];let shortage=0,overage=0,complete=0;for(const x of arr){const state=countState(x);if(state.complete){complete++;if(state.variance<0)shortage++;if(state.variance>0)overage++}const card=document.createElement('div');card.className='count-card';const title=document.createElement('div');title.className='sku-title';title.textContent=x.sku;const sub=document.createElement('div');sub.className='sku-detail';sub.textContent='系統：'+fmt(x.stock)+' 件｜實盤：'+(state.done?fmt(state.actual):'尚未盤點')+'｜'+state.status;const pill=document.createElement('span');pill.className='status-pill '+state.cls;pill.textContent=state.variance===null?'待完成':state.variance>0?'差異 +'+state.variance:'差異 '+state.variance;card.append(title,sub,pill);list.append(card)}$('resultSummary').textContent='盤點 SKU '+fmt(arr.length)+' 款｜已完成 '+fmt(complete)+' 款｜短少 '+fmt(shortage)+' 款｜多出 '+fmt(overage)+' 款';if(!arr.length)list.innerHTML='<div class="empty">目前尚未加入盤點 SKU。</div>'}
+function resolveBarcode(raw){const code=cleanCode(raw);if(!code)return{error:'請先輸入 Item Number'};if(!stocktakingItems.size)return{error:'盤點清單是空的，請先勾選 SKU 加入盤點清單'};let matches=[];for(const owner of stocktakingItems.values())for(const item of owner.sizeItems){if(item.itemNo&&cleanCode(item.itemNo)===code)matches.push({owner,item})}if(matches.length>1)return{error:'此 Item Number 對應多筆尺寸資料，為避免扣錯庫存，請手動確認'};if(!matches.length)return{error:'找不到條碼 '+raw+'，或該 SKU 尚未加入盤點清單'};return matches[0]}
+function updateScannedCard(owner,item){
+  // 連續掃描不重建整份清單；清單可能有上千 SKU，重建會拖慢每件 0.5 秒的偵測。
+  const list=$('workspaceList');
+  const card=[...list.children].find(el=>el.dataset.sku===owner.sku);
+  if(!card){renderWorkspace();return}
+  const previous=list.querySelector('.count-card.active');
+  if(previous&&previous!==card){previous.classList.remove('active');previous.querySelector('.active-caption')?.remove()}
+  card.classList.add('active');
+  if(!card.querySelector('.active-caption')){const label=document.createElement('div');label.className='active-caption';label.textContent='● 正在盤點的 SKU';card.prepend(label)}
+  list.prepend(card);
+  const idx=owner.sizeItems.indexOf(item);
+  const line=card.querySelectorAll('.size-line')[idx];
+  if(line){const inputs=line.querySelectorAll('input');if(inputs[1])inputs[1].value=item.actual}
+  const st=countState(owner),fields=card.querySelectorAll('.count-field input');
+  if(fields.length>=3){fields[0].value=owner.stock;fields[1].value=st.done?st.actual:'';fields[2].value=st.variance===null?'—':(st.variance>0?'+':'')+st.variance;fields[2].style.color=st.variance<0?'#ff6666':'#eee'}
+  const pill=card.querySelector('.status-pill');if(pill){pill.textContent=st.status;pill.className='status-pill '+st.cls}
+  renderStats();save();
+}
+function processBarcode(raw){
+  const code=String(raw??$('barcodeInput').value).trim(),found=resolveBarcode(code);
+  if(found.error){feedback('scanFeedback',found.error,false);$('barcodeInput').value=code;return false}
+  const {owner,item}=found;
+  // 實盤數量僅計算掃到的件數，絕不從 CSV STOCK_ON_HAND 起算或扣減。
+  const before=item.counted&&item.actual!==''?Number(item.actual):0;
+  item.actual=before+1;item.counted=true;activeScanSku=owner.sku;
+  updateScannedCard(owner,item);
+  feedback('scanFeedback','掃描成功 '+owner.sku+'｜尺寸 '+item.size+'｜實盤 '+before+' → '+item.actual+' 件（+1）',true);
+  $('barcodeInput').value='';
+  return true;
+}
+function findSku(q){const s=norm(q);if(!s)return null;return skuData.find(x=>norm(x.sku)===s)||skuData.find(x=>norm(x.style)===s)||null}
+function adjustManual(dir){if(!inv){feedback('manualFeedback','請先匯入 CSV 庫存檔',false);return}const target=findSku($('manualSku').value),size=norm($('manualSize').value),qty=Number($('manualQty').value);if(!target){feedback('manualFeedback','CSV 中找不到指定 SKU，請輸入 Style-Color 完整型號',false);return}if(!size){feedback('manualFeedback','請輸入尺寸',false);return}if(!Number.isInteger(qty)||qty<1){feedback('manualFeedback','請輸入大於 0 的整數',false);return}let owner=stocktakingItems.get(target.sku);if(!owner){owner={...target,sizeItems:target.sizeItems.map(z=>({...z}))}}const matches=owner.sizeItems.filter(z=>norm(z.size)===size);if(matches.length>1){feedback('manualFeedback','此尺寸對應多筆條碼，請直接在下方尺寸明細輸入實盤數量，以免改錯',false);return}if(!matches.length){feedback('manualFeedback','此 SKU 的 CSV 資料找不到尺寸 '+size+'，請核對後再操作',false);return}const z=matches[0],before=z.counted&&z.actual!==''?Number(z.actual):0,after=before+dir*qty;if(after<0){feedback('manualFeedback','目前 '+before+' 件，無法減少 '+qty+' 件',false);return}z.actual=after;z.counted=true;stocktakingItems.set(target.sku,owner);activeScanSku=target.sku;$('manualSku').value=target.sku;renderWorkspace();feedback('manualFeedback','已更新 '+target.sku+'｜'+z.size+'｜'+before+' → '+after,true)}
+function exportCSV(){if(!stocktakingItems.size){alert('尚無盤點清單，無法匯出。');return}const escape=x=>{const s=String(x??'');return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};const table=[['SKU','商品描述','Division','Sub Dept','Item Number','尺寸','系統庫存','實盤數量','差異','盤點狀態']];for(const x of stocktakingItems.values())for(const z of x.sizeItems){const done=z.counted&&z.actual!=='';const diff=done?Number(z.actual)-Number(z.stock):'';table.push([x.sku,x.description,x.division,x.dept,z.itemNo,z.size,z.stock,done?z.actual:'',diff,!done?'尚未盤點':diff===0?'數量一致':diff<0?'短少':'多出'])}const csv='\uFEFF'+table.map(row=>row.map(escape).join(',')).join('\r\n'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='NIKE_盤點差異_'+new Date().toISOString().slice(0,10)+'.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+// 相機：持續辨識、旋轉辨識橫／直條碼、0.5 秒節流、提示音與防連續誤計。
+let cameraStream=null,cameraOpen=false,torchOn=false,cameraTimer=0,cameraSession=0;
+let nativeDetector=null,zxingReader=null,audioCtx=null,cameraSessionCount=0;
+let lastScanCode='',lastScanAt=0,lastCodeSeenAt=0,emptyRounds=0,canRepeatCode=true;
+const SCAN_MIN_INTERVAL=520, REARM_LOST_MS=260, DETECT_PAUSE_MS=110;
+const rotationCanvases=new Map();
+function cameraStatus(message,good=false){feedback('cameraStatus',message,good)}
+function soundContext(){
+  try{
+    if(!audioCtx){const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return null;audioCtx=new Ctx()}
+    if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});
+    return audioCtx;
+  }catch(e){console.warn('WebAudio 啟動失敗',e);return null}
+}
+function playBeep(){
+  const ctx=soundContext();
+  if(!ctx||ctx.state==='closed')return;
+  try{
+    const t=ctx.currentTime,osc=ctx.createOscillator(),volume=ctx.createGain();
+    osc.type='sine';osc.frequency.setValueAtTime(1120,t);
+    volume.gain.setValueAtTime(0.001,t);
+    volume.gain.exponentialRampToValueAtTime(.30,t+.012);
+    volume.gain.exponentialRampToValueAtTime(.001,t+.13);
+    osc.connect(volume);volume.connect(ctx.destination);
+    osc.start(t);osc.stop(t+.14);
+    if(navigator.vibrate)navigator.vibrate(35);
+  }catch(e){console.warn('提示音播放失敗',e)}
+}
+function stopCamera(){
+  cameraOpen=false;cameraSession++;
+  clearTimeout(cameraTimer);cameraTimer=0;
+  if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}
+  const video=$('cameraVideo');try{video.pause()}catch(e){}video.srcObject=null;
+  $('cameraModal').classList.add('hidden');$('torchButton').disabled=true;
+  $('torchButton').textContent='手電筒';torchOn=false;
+}
+function cameraFrame(video,degrees){
+  const vw=video.videoWidth,vh=video.videoHeight;
+  if(!vw||!vh)return null;
+  const scale=Math.min(1,1280/Math.max(vw,vh)),w=Math.max(1,Math.floor(vw*scale)),h=Math.max(1,Math.floor(vh*scale));
+  const isSideways=degrees===90||degrees===270,canvas=rotationCanvases.get(degrees)||document.createElement('canvas');
+  rotationCanvases.set(degrees,canvas);
+  const cw=isSideways?h:w,ch=isSideways?w:h;
+  if(canvas.width!==cw)canvas.width=cw;
+  if(canvas.height!==ch)canvas.height=ch;
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});if(!ctx)return null;
+  ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,cw,ch);
+  if(degrees===90){ctx.translate(h,0);ctx.rotate(Math.PI/2)}
+  else if(degrees===270){ctx.translate(0,w);ctx.rotate(-Math.PI/2)}
+  else if(degrees===180){ctx.translate(w,h);ctx.rotate(Math.PI)}
+  ctx.drawImage(video,0,0,w,h);
+  ctx.setTransform(1,0,0,1,0,0);
+  return canvas;
+}
+async function detectBarcodes(video){
+  // 先讀水平原圖，再將畫面旋轉 90 / 270 度；可辨識鞋盒直式張貼的商品條碼。
+  // 相機畫面不必跟著旋轉，解碼使用的是隱藏 Canvas。
+  for(const deg of [0,90,270,180]){
+    const canvas=cameraFrame(video,deg);if(!canvas)continue;
+    if(nativeDetector){
+      try{const results=await nativeDetector.detect(canvas);if(results?.length){
+        for(const r of results){const code=String(r.rawValue||'').trim();if(code)return code}
+      }}catch(err){if(!window.__nikeDetectorWarned){console.warn('原生辨識切換備用解碼',err);window.__nikeDetectorWarned=true}nativeDetector=null}
+    }
+    if(zxingReader){
+      try{const result=zxingReader.decodeFromCanvas(canvas);if(result){const code=result.getText();if(code)return code}}catch(_){/* 單一角度無條碼屬正常現象 */}
+    }
+  }
+  return '';
+}
+function handleCameraCode(code){
+  const now=performance.now(),normalized=cleanCode(code);
+  if(!normalized)return;
+  emptyRounds=0;lastCodeSeenAt=now;
+  if(now-lastScanAt<SCAN_MIN_INTERVAL)return;
+  // 同一張條碼長時間對準鏡頭，不可每半秒重複加件。
+  if(normalized===lastScanCode&&!canRepeatCode)return;
+  const success=processBarcode(code);
+  if(success){
+    lastScanAt=performance.now();lastScanCode=normalized;canRepeatCode=false;
+    cameraSessionCount++;$('cameraCounter').textContent=fmt(cameraSessionCount);
+    const owner=stocktakingItems.get(activeScanSku);
+    const found=owner?.sizeItems.find(x=>cleanCode(x.itemNo)===normalized);
+    const msg='✓ '+activeScanSku+'｜'+(found?.size||'')+'｜實盤 '+(found?.actual??'')+' 件';
+    $('cameraLastScan').textContent=msg;$('cameraLastScan').classList.add('ok');
+    cameraStatus('已成功計數（+1）｜鏡頭持續開啟。請移開前一張條碼再掃下一件。',true);
+    playBeep();
+  }else{
+    cameraStatus('已辨識條碼 '+code+'，但目前盤點清單找不到對應商品；請確認先加入清單。');
+  }
+}
+async function cameraTick(session){
+  if(!cameraOpen||session!==cameraSession)return;
+  const video=$('cameraVideo');
+  try{
+    if(video.readyState>=2){
+      const code=await detectBarcodes(video);
+      if(!cameraOpen||session!==cameraSession)return;
+      if(code)handleCameraCode(code);
+      else{
+        emptyRounds++;
+        if(emptyRounds>=2&&performance.now()-lastCodeSeenAt>=REARM_LOST_MS)canRepeatCode=true;
+      }
+    }
+  }catch(err){console.warn('本次辨識失敗，下一輪繼續：',err)}
+  if(cameraOpen&&session===cameraSession)cameraTimer=setTimeout(()=>cameraTick(session),DETECT_PAUSE_MS);
+}
+async function loadBackupZXing(){
+  if(window.ZXingBrowser?.BrowserMultiFormatOneDReader||window.ZXingBrowser?.BrowserMultiFormatReader)return true;
+  cameraStatus('正在載入備援條碼辨識元件…');
+  const src='https://unpkg.com/@zxing/browser@0.1.5/umd/zxing-browser.min.js';
+  try{
+    await new Promise(resolve=>{
+      const script=document.createElement('script');script.src=src;script.async=true;
+      let finished=false;const finish=()=>{if(finished)return;finished=true;resolve()};
+      script.onload=finish;script.onerror=finish;document.head.append(script);
+      setTimeout(finish,5500);
+    });
+  }catch(err){console.warn('備援解碼載入失敗',err)}
+  return !!(window.ZXingBrowser?.BrowserMultiFormatOneDReader||window.ZXingBrowser?.BrowserMultiFormatReader);
+}
+async function startCamera(){
+  // 必須在使用者按鈕事件中先喚醒 WebAudio，iPhone 才有機會發出成功提示音。
+  soundContext();
+  stopCamera();
+  $('cameraModal').classList.remove('hidden');cameraStatus('正在啟動相機…');
+  $('cameraCounter').textContent='0';cameraSessionCount=0;
+  $('cameraLastScan').textContent='等待辨識第一件商品…';$('cameraLastScan').classList.remove('ok');
+  lastScanCode='';lastScanAt=0;lastCodeSeenAt=0;emptyRounds=0;canRepeatCode=true;
+  rotationCanvases.clear();nativeDetector=null;zxingReader=null;
+  if(!window.isSecureContext||!navigator.mediaDevices?.getUserMedia){
+    cameraStatus('此開啟方式無法存取相機。請使用 HTTPS 網址並允許相機權限；edge://external-file 通常不可使用相機。');return;
+  }
+  cameraOpen=true;const session=++cameraSession;
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}}});
+    if(!cameraOpen||session!==cameraSession){stream.getTracks().forEach(t=>t.stop());return}
+    cameraStream=stream;const video=$('cameraVideo');video.srcObject=stream;await video.play();
+    if(!cameraOpen||session!==cameraSession)return;
+    const caps=stream.getVideoTracks()[0].getCapabilities?.();$('torchButton').disabled=!caps?.torch;
+    if('BarcodeDetector' in window){
+      try{
+        const formats=await BarcodeDetector.getSupportedFormats();
+        const desired=['ean_13','upc_a','ean_8','code_128','code_39','itf','codabar'].filter(f=>formats.includes(f));
+        if(desired.length)nativeDetector=new BarcodeDetector({formats:desired});
+      }catch(err){console.warn('Native barcode detector 不可用',err)}
+    }
+    if(!window.ZXingBrowser?.BrowserMultiFormatOneDReader&&!window.ZXingBrowser?.BrowserMultiFormatReader&&!nativeDetector)await loadBackupZXing();
+    if(!cameraOpen||session!==cameraSession)return;
+    const Reader=window.ZXingBrowser?.BrowserMultiFormatOneDReader||window.ZXingBrowser?.BrowserMultiFormatReader;
+    if(Reader){try{zxingReader=new Reader()}catch(err){console.warn('ZXing 解碼元件無法初始化',err)}}
+    if(!nativeDetector&&!zxingReader){cameraStatus('相機已開啟，但條碼辨識元件無法載入。請確認 HTTPS 與手機網路後重新啟動。');return}
+    cameraStatus('相機連續掃描中：橫式＋直式自動辨識；每件至少間隔約 0.5 秒。',true);
+    cameraTick(session);
+  }catch(err){
+    console.error('Camera error',err);
+    cameraStatus('相機無法啟動：'+(err?.message||err?.name||err)+'。請確認 HTTPS、相機權限以及是否有其他 App 佔用。');
+    if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}
+    cameraOpen=false;
+  }
+}
+async function toggleTorch(){try{const track=cameraStream?.getVideoTracks()[0];if(!track)return;torchOn=!torchOn;await track.applyConstraints({advanced:[{torch:torchOn}]});$('torchButton').textContent=torchOn?'關閉手電筒':'手電筒'}catch(e){torchOn=false;cameraStatus('此手機或瀏覽器不支援網頁控制手電筒，請改用現場照明。')}}
+function nav(which){document.querySelectorAll('[data-nav]').forEach(b=>b.classList.toggle('active',b.dataset.nav===which));if(which==='home'){$('top').scrollIntoView({behavior:'smooth'});return}if(which==='count'){if(!stocktakingItems.size&&selection.size)addSelected();$('workspace').classList.remove('hidden');$('workspace').scrollIntoView({behavior:'smooth'});return}if(which==='result'){$('results').classList.remove('hidden');renderResults();$('results').scrollIntoView({behavior:'smooth'});return}alert('設定：盤點清單已儲存於此瀏覽器。如需完整備份，請在盤點工作區按「匯出盤點差異 CSV」。相機需使用 HTTPS 網頁才能開啟。')}
+$('importButton').onclick=()=>$('csvFile').click();$('csvFile').onchange=async e=>{await importCSV(e.target.files[0]);e.target.value=''};
+$('deptToggle').onclick=()=>$('deptOptions').classList.toggle('hidden');
+document.querySelectorAll('[data-bu]').forEach(b=>b.onclick=()=>{if(!inv){setStatus('請先匯入 CSV');return}activeBU=b.dataset.bu;selectedDepts.clear();buildDepts();resetSelection();document.querySelectorAll('[data-bu]').forEach(x=>x.classList.toggle('active',x===b));renderFilters()});
+$('skuSearch').oninput=()=>{resetSelection();renderFilters()};$('skuSort').onchange=renderFilters();
+$('applyQty').onclick=()=>{const exact=$('exactStock').value.trim(),min=$('minStock').value.trim(),max=$('maxStock').value.trim();if(exact!==''&&(min!==''||max!=='')){alert('指定數量與區間不能同時使用，請清空其中一組。');return}if([exact,min,max].some(s=>s!==''&&(!Number.isInteger(Number(s))||Number(s)<0))){alert('數量必須為 0 或正整數。');return}const a={exact:exact===''?null:Number(exact),min:min===''?null:Number(min),max:max===''?null:Number(max)};if(a.min!==null&&a.max!==null&&a.min>a.max){alert('最小數量不能大於最大數量');return}qtyFilter=a;resetSelection();renderFilters()};
+$('clearQty').onclick=()=>{$('exactStock').value=$('minStock').value=$('maxStock').value='';qtyFilter={exact:null,min:null,max:null};resetSelection();renderFilters()};
+$('selectAll').onclick=()=>{selection=new Set(visibleSku.map(x=>x.sku));renderFilters()};$('clearSelection').onclick=()=>{resetSelection();renderFilters()};$('addSelected').onclick=addSelected;
+$('workspaceSort').onchange=renderWorkspace;$('scanButton').onclick=()=>processBarcode();$('barcodeInput').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();processBarcode()}};
+$('manualPlus').onclick=()=>adjustManual(1);$('manualMinus').onclick=()=>adjustManual(-1);$('manualSku').onkeydown=e=>{if(e.key==='Enter'){$('manualSize').focus()}};$('manualSize').onkeydown=e=>{if(e.key==='Enter'){$('manualQty').focus()}};
+$('cameraButton').onclick=startCamera;$('cameraClose').onclick=stopCamera;$('cameraRetry').onclick=startCamera;$('torchButton').onclick=toggleTorch;$('testBeep').onclick=playBeep;
+$('clearWorkspace').onclick=()=>{if(!stocktakingItems.size)return;if(confirm('確定清空整份盤點清單嗎？此操作不能復原。')){stocktakingItems.clear();activeScanSku='';renderWorkspace();if(inv)renderFilters();setStatus('盤點清單已清空')}};
+$('exportReport').onclick=exportCSV;$('exportResult').onclick=exportCSV;document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>nav(b.dataset.nav));
+window.addEventListener('pagehide',save);restore();
+</script></body></html>
